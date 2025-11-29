@@ -148,6 +148,32 @@
                                 </div>
                             </article>
                         </div>
+                           <div class="swiper-slide emotions-slider__slide">
+                            <article class="emotions-slider-item">
+                                <div class="emotions-slider-item__image">
+                                    <img src="images/portfolio.jpg" alt="Portfolio Afiq">
+                                </div>
+                                <div class="emotions-slider-item__content">
+                                    <div class="emotions-slider-item__header">
+                                        <div class="emotions-slider-item__header-inner">
+                                            <h3 class="emotions-slider-item__title">Portfolio Afiq</h3>
+                                        </div>
+                                    </div>
+                                    <p class="emotions-slider-item__text">My personal portfolio website showcasing my projects, skills, and professional journey. Built with modern web technologies for optimal performance and user experience.</p>
+                                    <div class="emotions-slider-item__footer">
+                                        <a href="https://afiqamirul.vercel.app" target="_blank" class="emotions-slider-item__btn">
+                                            <span>Live Demo</span>
+                                            <span class="emotions-slider-item__btn-icon"></span>
+                                        </a>
+                                        <div class="tags">
+                                            <span class="tag">Next.js</span>
+                                            <span class="tag">Tailwind CSS</span>
+                                            <span class="tag">React</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                         <div class="swiper-slide emotions-slider__slide">
                             <article class="emotions-slider-item">
                                 <div class="emotions-slider-item__image">
@@ -161,6 +187,10 @@
                                     </div>
                                     <p class="emotions-slider-item__text">Redesigned and developed the main company website during my internship at Rimbunan Ilmu. This project involved creating a modern, responsive website with improved user experience, professional layout, and enhanced functionality.</p>
                                     <div class="emotions-slider-item__footer">
+                                        <a href="https://fiqdev15.github.io/intern-webdev/" target="_blank" class="emotions-slider-item__btn">
+                                            <span>Live Demo</span>
+                                            <span class="emotions-slider-item__btn-icon"></span>
+                                        </a>
                                         <div class="tags">
                                             <span class="tag">HTML5</span>
                                             <span class="tag">CSS3</span>
@@ -194,6 +224,7 @@
                                 </div>
                             </article>
                         </div>
+                     
                     </div>
                 </div>
                 <div class="slider-pagination"></div>
@@ -235,7 +266,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Music Player
+       
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let playing = false;
@@ -246,7 +277,6 @@
             musicBtn.innerHTML = playing ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-music"></i>';
         });
 
-        // Projects Slider
         document.addEventListener("DOMContentLoaded", () => {
             const sliders = document.querySelectorAll(".emotions-slider");
 
@@ -289,7 +319,6 @@
             });
         });
 
-        // Back to Top
         const backTop = document.getElementById('backTop');
         window.addEventListener('scroll', () => {
             backTop.classList.toggle('show', window.pageYOffset > 300);
