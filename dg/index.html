@@ -6,6 +6,7 @@
     <title>Afiq Amirul Aiman</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -233,26 +234,71 @@
 
         <section id="contact" class="container">
             <h2>Contact Me</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h3><i class="fas fa-envelope"></i> Email</h3>
-                    <p>afiqamirulaiman@gmail.com</p>
+            <div class="contact-wrapper">
+                <div class="contact-info-section">
+                    <h3 style="font-size: 1.5rem; color: var(--text-3); margin-bottom: 30px;">Get in Touch</h3>
+                    <div class="contact-info-items">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>afiqamirulaiman@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+601165602002</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Raub, Pahang, Malaysia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h4 style="font-size: 0.85rem; color: var(--text-2); text-transform: uppercase; margin-bottom: 20px;">Connect With Me</h4>
+                        <div class="social-links">
+                            <a href="https://afiqamirul.vercel.app" target="_blank" class="social-link"><i class="fas fa-globe"></i></a>
+                            <a href="https://github.com/FiqDev15" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/afiqamirulaiman" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <h3><i class="fas fa-phone"></i> Phone</h3>
-                    <p>+601165602002</p>
-                </div>
-                <div class="contact-item">
-                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
-                    <p>Raub, Pahang, Malaysia</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <h3 style="font-size: 0.85rem; color: var(--text-2); text-transform: uppercase; margin-bottom: 25px;">Connect With Me</h3>
-                <div class="links-grid">
-                    <a href="https://afiqamirul.vercel.app" target="_blank">My Portfolio</a>
-                    <a href="https://github.com/FiqDev15" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/afiqamirulaiman" target="_blank">LinkedIn</a>
+                <div class="contact-form-section">
+                    <h3 style="font-size: 1.5rem; color: var(--text-3); margin-bottom: 15px;">Send me a message</h3>
+                    <p style="color: var(--text-2); margin-bottom: 30px;">Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.</p>
+                    <div id="form-success-message" style="display: none; padding: 15px; background: rgba(100,255,218,0.1); border: 1px solid var(--accent); border-radius: 4px; margin-bottom: 20px; color: var(--accent);">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. I'll get back to you soon.
+                    </div>
+                    <div id="form-error-message" style="display: none; padding: 15px; background: rgba(248,113,113,0.1); border: 1px solid #f87171; border-radius: 4px; margin-bottom: 20px; color: #f87171;">
+                        <i class="fas fa-exclamation-circle"></i> <span id="error-text">Unable to send message. Please try again or contact me directly via email.</span>
+                    </div>
+                    <form action="https://send.pageclip.co/RK9VpybBSkZKJ85uGeHVl3n1fznGJe7v" class="pageclip-form contact-form" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="pageclip-form__submit contact-submit-btn">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -326,6 +372,51 @@
         backTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Contact Form Success/Error Handler
+        window.addEventListener('load', function() {
+            const form = document.querySelector('.pageclip-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const successMsg = document.getElementById('form-success-message');
+                    const errorMsg = document.getElementById('form-error-message');
+                    
+                    // Hide any previous messages
+                    successMsg.style.display = 'none';
+                    errorMsg.style.display = 'none';
+                });
+
+                // Listen for Pageclip success event
+                form.addEventListener('pageclip-success', function() {
+                    const successMsg = document.getElementById('form-success-message');
+                    successMsg.style.display = 'block';
+                    form.reset();
+                    setTimeout(function() {
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                });
+
+                // Listen for Pageclip error event
+                form.addEventListener('pageclip-error', function(e) {
+                    const errorMsg = document.getElementById('form-error-message');
+                    const errorText = document.getElementById('error-text');
+                    
+                    if (e.detail && e.detail.message) {
+                        if (e.detail.message.includes('not supported')) {
+                            errorText.textContent = 'Please host this page on a web server or upload it to test the contact form. Local file testing is not supported by Pageclip.';
+                        } else {
+                            errorText.textContent = e.detail.message;
+                        }
+                    }
+                    
+                    errorMsg.style.display = 'block';
+                    setTimeout(function() {
+                        errorMsg.style.display = 'none';
+                    }, 8000);
+                });
+            }
+        });
     </script>
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
