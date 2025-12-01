@@ -10,7 +10,12 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="#about">About Me</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -303,12 +308,26 @@
        
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
         let playing = false;
 
         musicBtn.addEventListener('click', () => {
             playing ? music.pause() : music.play();
             playing = !playing;
             musicBtn.innerHTML = playing ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-music"></i>';
+        });
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
         });
 
         document.addEventListener("DOMContentLoaded", () => {
